@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "nodejs-practice",
   "version": "1.0.0",
   "description": "",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/bigmasonwang/NodeJS-Practice#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "nodemon": "^2.0.7"
   }
 }
