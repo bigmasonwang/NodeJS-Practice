@@ -1,7 +1,18 @@
-import { createServer } from 'http';
-import routes from './routes.js';
-import express from 'express';
+const http = require('http');
+const express = require('express');
+const { StringDecoder } = require('string_decoder');
 
-const server = createServer(routes);
+const app = express();
 
-server.listen(3000);
+app.use((req, res, next) => {
+  console.log('in the middleware');
+  next();
+});
+
+app.use((req, res, next) => {
+  console.log('in the another middleware');
+  res.send('<h1>Hello from express</h1>');
+  next();
+});
+
+app.listen(3000);
