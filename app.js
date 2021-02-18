@@ -8,6 +8,9 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
+// make /public static
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/admin', adminRoute);
 
 app.use(shopRoute);
