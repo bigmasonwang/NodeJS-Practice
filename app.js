@@ -1,22 +1,14 @@
 const http = require('http');
 const express = require('express');
+const adminRoute = require('./routes/admin');
+const shopRoute = require('./routes/shop');
+
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/add-product', (req, res, next) => {
-  res.send(
-    '<form action="/product" method="POST"><input type="text" name="title" /><button type="submit">Add Product</button></form>'
-  );
-});
+app.use(adminRoute);
 
-app.use('/product', (req, res, next) => {
-  console.log(req.body);
-  res.redirect('/');
-});
-
-app.use('/', (req, res, next) => {
-  res.send('<h1>Hello from express</h1>');
-});
+app.use(shopRoute);
 
 app.listen(3000);
