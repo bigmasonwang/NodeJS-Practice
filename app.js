@@ -1,7 +1,7 @@
 const http = require('http');
 const express = require('express');
 const path = require('path');
-const adminRoute = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRoute = require('./routes/shop');
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 // make /public static
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminRoute);
+app.use('/admin', adminData.routes);
 
 app.use(shopRoute);
 
