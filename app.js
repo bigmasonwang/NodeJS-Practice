@@ -6,6 +6,9 @@ const shopRoute = require('./routes/shop');
 
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
 app.use(express.urlencoded({ extended: true }));
 
 // make /public static
